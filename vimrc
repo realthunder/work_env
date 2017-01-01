@@ -256,6 +256,8 @@ set makeprg=~/make.sh
 colorscheme zenburn
 highlight String ctermbg=1
 highlight Search ctermfg=blue
+" matching bracket pattern
+highlight MatchParen cterm=bold ctermbg=black ctermfg=green
 
 " fuzzy finder shutcut
 " nnoremap ,fb :FuzzyFinderBuffer<CR>
@@ -383,10 +385,11 @@ inoremap jj <Esc>
 cmap jj <C-c>
 
 " Quickfix shutcut
-nnoremap ,qn :cn<CR>
-nnoremap ,qo :copen<CR>
-nnoremap ,qc :cclose<CR>
-nnoremap ,qp :cp<CR>
+nnoremap <leader>qn :cn<CR>
+nnoremap <leader>qo :copen<CR>
+nnoremap <leader>co :copen<CR>
+nnoremap <leader>qc :cclose<CR>
+nnoremap <leader>qp :cp<CR>
 
 " Comment shutcut
 "noremap <silent> ,# :call CommentLineToEnd('# ')<CR>+
@@ -438,12 +441,14 @@ nnoremap ,cd :cd %:p:h<CR>:pwd<CR>
 
 " CtrlP
 let g:ctrlp_follow_symlinks=1
+let g:ctrlp_match_window = 'results:100'
 nnoremap <leader>fb :CtrlPBuffer<CR>
 nnoremap <leader>fp :CtrlP<Space>
 nnoremap <leader>fm :CtrlPMixed<CR>
 nnoremap <leader>ff :CtrlPCurWD<CR>
 nnoremap <leader>ft :CtrlPTag<CR>
 nnoremap <leader>fg :CtrlPBufTag<CR>
+
 " The Silver Searcher
 " apt-get install silversearcher-ag
 if executable('ag')
