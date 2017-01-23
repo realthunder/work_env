@@ -62,6 +62,8 @@ if exists( '*vundle#begin' )
   Plugin 'altercation/vim-colors-solarized'
   Plugin 'jnurmine/Zenburn'
 
+  Plugin 'vim-scripts/Conque-GDB'
+
   call vundle#end()
 
 endif
@@ -478,7 +480,7 @@ nnoremap <leader>fw :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 " fugitive mappings
 nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gc :Gcommit -v -q<CR>
-nnoremap <leader>ga :Gcommit --amend<CR>
+nnoremap <leader>ga :Gcommit -v -a<CR>
 nnoremap <leader>gt :Gcommit -v -q %<CR>
 nnoremap <leader>gd :Gdiff<Space>
 nnoremap <leader>ge :Gedit<CR>
@@ -491,6 +493,12 @@ nnoremap <leader>gb :Git branch<Space>
 nnoremap <leader>go :Git checkout<Space>
 nnoremap <leader>gps :Dispatch! git push<CR>
 nnoremap <leader>gpl :Dispatch! git pull<CR>
+
+" diff mode
+nnoremap <leader>dp :diffput<CR>
+nnoremap <leader>dg :diffget<CR>
+nnoremap <leader>dn [c
+nnoremap <leader>do ]c
 
 " for airline
 set laststatus=2
