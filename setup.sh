@@ -1,9 +1,9 @@
 #!/bin/sh
 
-files='vimrc screenrc'
+files='.vimrc .screenrc make.sh'
 for f in $files; do
     src="$PWD/$f"
-    dst=~/."$f"
+    dst=~/"$f"
     if [ "$dst" -ef "$f" ]; then
        echo skip $f
        continue
