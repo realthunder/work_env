@@ -1,5 +1,15 @@
 #!/bin/sh
 
+if ! which git; then
+    apt-get install -y git
+fi
+if test -z "$(git config --global user.name)"; then
+    git config --global user.name 'Zheng, Lei'
+    git config --global user.email 'realthunder.dev@gmail.com'
+fi
+
+git config --global core.editor "vim"
+
 files='.vimrc .screenrc make.sh'
 for f in $files; do
     src="$PWD/$f"
@@ -8,7 +18,9 @@ for f in $files; do
        echo skip $f
        continue
     fi
-    if test -f "$dst"; then
+    if test -h "$dst"; then
+	rm $dst
+    elif test -f "$dst"; then
         if test -f "$dst.bak"; then
             echo error: $dst backup already exist
             continue
