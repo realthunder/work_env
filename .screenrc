@@ -1,2 +1,3 @@
 defscrollback 20000
 term screen-256color
+startup_message off
