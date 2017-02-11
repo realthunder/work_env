@@ -62,7 +62,13 @@ if exists( '*vundle#begin' )
   Plugin 'altercation/vim-colors-solarized'
   Plugin 'jnurmine/Zenburn'
 
-  Plugin 'vim-scripts/Conque-GDB'
+  " Plugin 'vim-scripts/Conque-GDB'
+
+  Plugin 'keith/swift.vim'
+
+  " Plugin 'ludovicchabant/vim-gutentags'
+
+  Plugin 'rust-lang/rust.vim'
 
   call vundle#end()
 
@@ -519,6 +525,8 @@ endif
 nnoremap <F2> :set invpaste paste?<CR>
 set pastetoggle=<F2>
 set showmode
+
+let g:syntastic_swift_checkers = ['swiftpm', 'swiftlint']
 
 " auto reload .vimrc change
 augroup myvimrchooks

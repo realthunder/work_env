@@ -10,7 +10,7 @@ fi
 
 git config --global core.editor "vim"
 
-files='.vimrc .screenrc make.sh'
+files='.ctags .vimrc .screenrc make.sh'
 for f in $files; do
     src="$PWD/$f"
     dst=~/"$f"
