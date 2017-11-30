@@ -31,10 +31,13 @@ if exists( '*vundle#begin' )
 
   "html
   "  isnowfy only compatible with python not python3
-  Plugin 'isnowfy/python-vim-instant-markdown'
-  Plugin 'jtratner/vim-flavored-markdown'
-  Plugin 'suan/vim-instant-markdown'
-  Plugin 'nelstrom/vim-markdown-preview'
+  " Plugin 'isnowfy/python-vim-instant-markdown'
+  " Plugin 'jtratner/vim-flavored-markdown'
+  " Plugin 'suan/vim-instant-markdown'
+  " Plugin 'nelstrom/vim-markdown-preview'
+  Plugin 'vim-pandoc/vim-pandoc'
+  Plugin 'vim-pandoc/vim-pandoc-syntax'
+
   "python sytax checker
   " Plugin 'nvie/vim-flake8'
   " Plugin 'vim-scripts/Pydiction'
@@ -48,7 +51,7 @@ if exists( '*vundle#begin' )
   " Plugin 'davidhalter/jedi-vim'
   " Plugin 'ervandew/supertab'
   ""code folding
-  Plugin 'tmhedberg/SimpylFold'
+  " Plugin 'tmhedberg/SimpylFold'
 
   "Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
   Plugin 'vim-airline/vim-airline'
@@ -62,13 +65,17 @@ if exists( '*vundle#begin' )
   Plugin 'altercation/vim-colors-solarized'
   Plugin 'jnurmine/Zenburn'
 
-  " Plugin 'vim-scripts/Conque-GDB'
+  Plugin 'vim-scripts/Conque-GDB'
 
   Plugin 'keith/swift.vim'
 
   " Plugin 'ludovicchabant/vim-gutentags'
 
   Plugin 'rust-lang/rust.vim'
+
+  Plugin 'skywind3000/asyncrun.vim'
+
+  Plugin 'SpaceVim/vim-swig.git'
 
   call vundle#end()
 
@@ -109,6 +116,9 @@ set clipboard=unnamed
 let mapleader=","
 
 let g:SimpylFold_docstring_preview = 1
+
+" pandoc
+let g:pandoc#modules#disabled = ["chdir"]
 
 " YCM
 let g:ycm_add_preview_to_completeopt = 1
@@ -426,7 +436,7 @@ let g:NERDDefaultAlign = 'left'
 let g:NERDAltDelims_java = 1
 
 " Add your own custom formats or override the defaults
-let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
+" let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
 
 " Allow commenting and inverting empty lines (useful when commenting a region)
 let g:NERDCommentEmptyLines = 1
@@ -512,7 +522,7 @@ nnoremap <leader>do ]c
 set laststatus=2
 " let g:airline#extensions#tabline#fnamemod = ":~:."
 let g:airline#extensions#tabline#fnamemod = ":t"
-
+let g:airline_exclude_filetypes = ['qf','netrw','diff','undotree','gundo','nerdtree','tagbar','conque_term']
 
 if has("gui_running")
   if has("gui_gtk2")
