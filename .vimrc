@@ -77,6 +77,10 @@ if exists( '*vundle#begin' )
 
   Plugin 'SpaceVim/vim-swig.git'
 
+  Plugin 'phleet/vim-mercenary'
+
+  Plugin 'leafgarland/typescript-vim'
+
   call vundle#end()
 
 endif
@@ -249,6 +253,15 @@ map <c-k> <c-w>k
 map <c-l> <c-w>l
 map <c-h> <c-w>h
 
+inoremap <c-h> <Left>
+inoremap <c-j> <Down>
+inoremap <c-k> <Up>
+inoremap <c-l> <Right>
+cnoremap <c-h> <Left>
+cnoremap <c-j> <Down>
+cnoremap <c-k> <Up>
+cnoremap <c-l> <Right>
+
 " have command-line completion <Tab> (for filenames, help topics, option names)
 " first list the available options and complete the longest common part, then
 " have further <Tab>s cycle through the possibilities:
@@ -274,10 +287,11 @@ endif
 set makeprg=~/make.sh
 
 colorscheme zenburn
-highlight String ctermbg=1
+" highlight String ctermbg=1
 highlight Search ctermfg=blue
 " matching bracket pattern
 highlight MatchParen cterm=bold ctermbg=black ctermfg=green
+highlight Visual cterm=reverse 
 
 " fuzzy finder shutcut
 " nnoremap ,fb :FuzzyFinderBuffer<CR>
@@ -539,6 +553,7 @@ set pastetoggle=<F2>
 set showmode
 
 let g:syntastic_swift_checkers = ['swiftpm', 'swiftlint']
+let g:syntastic_python_pylint_post_args="--max-line-length=120"
 
 " auto reload .vimrc change
 augroup myvimrchooks
