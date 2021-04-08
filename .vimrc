@@ -1,5 +1,11 @@
 set nocompatible
 
+if &term =~ '256color'
+  " disable Background Color Erase (BCE) so that color schemes
+  " render properly when inside 256-color GNU screen.
+  set t_ut=
+endif
+
 silent! call mkdir ($HOME.'/.vim/backup', 'p')
 silent! call mkdir ($HOME.'/.vim/swap', 'p')
 silent! call mkdir ($HOME.'/.vim/undo', 'p')
@@ -65,7 +71,8 @@ if exists( '*vundle#begin' )
   Plugin 'altercation/vim-colors-solarized'
   Plugin 'jnurmine/Zenburn'
 
-  Plugin 'vim-scripts/Conque-GDB'
+  " Plugin 'vim-scripts/Conque-GDB'
+  Plugin 'epheien/termdbg'
 
   Plugin 'keith/swift.vim'
 
@@ -140,7 +147,7 @@ let g:NERDTreeDirArrowCollapsible="~"
 set number
 
 "python with virtualenv support
-py << EOF
+py3 << EOF
 import os.path
 import sys
 import vim
@@ -417,6 +424,13 @@ nnoremap <silent> zj O<Esc>
 " This is totally awesome - remap jj to escape in insert mode.  You'll never type jj anyway, so it's great!
 inoremap jj <Esc>
 cmap jj <C-c>
+
+" For terminal usage inside vim <Esc> (or double <Esc> for quicker) switch to
+" terminal-normal, while arrows still working Terminal mode exit
+tnoremap <Esc> <C-W>N
+tnoremap <Esc><Esc> <C-W>N
+set timeout timeoutlen=1000  " Default
+set ttimeout ttimeoutlen=100  " Set by defaults.vim
 
 " Quickfix shutcut
 nnoremap <leader>qn :cn<CR>
